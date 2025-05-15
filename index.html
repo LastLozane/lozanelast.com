@@ -11,11 +11,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* Base Styles */
+
 :root {
-  --primary-color: #000000;
-  --secondary-color: #FFFFFF;
-  --light-color: #f0f0f0;
-  --dark-color: #1a1a1a;
+  --primary-color: #000000; /* Black */
+  --secondary-color: #FFFFFF; /* White */
+  --light-color: #f0f0f0; /* Light Gray */
+  --dark-color: #1a1a1a; /* Dark Gray */
   --border-radius: 12px;
   --transition: all 0.3s ease;
 }
@@ -87,20 +89,10 @@ body {
   }
 }
 
-/* Container */
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  position: relative;
-}
-
 /* Typography */
 
 .gradient-text {
-  background: white;
+  background: var(--secondary-color);
   color: transparent;
   display: inline-block;
   font-weight: 700;
@@ -128,6 +120,7 @@ body {
 
 .btn-primary:hover {
   background: var(--secondary-color);
+  color: var(--primary-color);
   transform: translateY(-2px);
 }
 
@@ -156,7 +149,7 @@ body {
 
 .header.scrolled {
   padding: 0.5rem 0;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Hero Section */
@@ -187,17 +180,6 @@ body {
 .hero-subtitle {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Section Styles */
@@ -242,6 +224,17 @@ body {
 }
 
 /* Animations */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @keyframes move {
   0% {
