@@ -2,1003 +2,542 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Last Lozane - Student Portfolio</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-/* Base Styles */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last Lozane - Student Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #FFFFFF;
+            --light-color: #f0f0f0;
+            --dark-color: #1a1a1a;
+            --accent-color: #FFB74D;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
 
-:root {
-  --primary-color: #000000; /* Black */
-  --secondary-color: #FFFFFF; /* White */
-  --light-color: #f0f0f0; /* Light Gray */
-  --dark-color: #1a1a1a; /* Dark Gray */
-  --border-radius: 12px;
-  --transition: all 0.3s ease;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-html {
-  scroll-behavior: smooth;
-}
+        body {
+            font-family: "Poppins", sans-serif;
+            line-height: 1.6;
+            color: var(--primary-color);
+            background: var(--light-color);
+            overflow-x: hidden;
+            position: relative;
+        }
 
-body {
-  font-family: "Poppins", sans-serif;
-  line-height: 1.6;
-  color: var(--primary-color);
-  background: var(--light-color);
-  overflow-x: hidden;
-  position: relative;
-}
+        /* Background Elements */
+        .bg-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background-image: url('path/to/your/background/image.jpg');
+            background-size: cover;
+            background-position: center;
+        }
 
-/* Background Elements */
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 0;
+            background: var(--light-color);
+            transition: var(--transition);
+        }
 
-.bg-elements {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-}
+        .header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
 
-.bg-circle {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.1;
-}
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
 
-.bg-circle-1 {
-  top: -10%;
-  right: -10%;
-  width: 60vw;
-  height: 60vw;
-  background: var(--primary-color);
-  animation: float 15s ease-in-out infinite;
-}
+        .nav-list {
+            display: flex;
+            gap: 1.5rem;
+        }
 
-.bg-circle-2 {
-  bottom: -15%;
-  left: -15%;
-  width: 70vw;
-  height: 70vw;
-  background: var(--secondary-color);
-  animation: float 20s ease-in-out infinite reverse;
-}
+        .nav-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
 
-@keyframes float {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-5%, 5%);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
 
-/* Typography */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            font-size: 0.875rem;
+            transition: var(--transition);
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
 
-.gradient-text {
-  background: var(--secondary-color);
-  color: transparent;
-  display: inline-block;
-  font-weight: 700;
-}
+        .btn:hover {
+            background: var(--accent-color);
+        }
 
-/* Buttons */
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 8rem 0;
+            position: relative;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--border-radius);
-  font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
-  border: none;
-  font-size: 0.875rem;
-}
+        .hero-content {
+            max-width: 600px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
 
-.btn-primary {
-  background: var(--primary-color);
-  color: var(--secondary-color);
-}
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
 
-.btn-primary:hover {
-  background: var(--secondary-color);
-  color: var(--primary-color);
-  transform: translateY(-2px);
-}
+        .hero-description {
+            margin-bottom: 2rem;
+        }
 
-.btn-outline {
-  background-color: transparent;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+        }
 
-.btn-outline:hover {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-}
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
 
-/* Header */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
 
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  padding: 1rem 0;
-  background: var(--light-color);
-}
+        /* About Section */
+        .about-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
 
-.header.scrolled {
-  padding: 0.5rem 0;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
+        .detail-item {
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            transition: var(--transition);
+        }
 
-/* Hero Section */
+        .detail-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
 
-.hero {
-  align-content: center;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 8rem 0 4rem;
-  position: relative;
-}
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
 
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3rem;
-  animation: fadeIn 1s ease-out;
-}
+        .contact-info {
+            flex: 1;
+            padding: 2rem;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-.hero-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin: 0.5rem 0;
-}
+        .contact-form-container {
+            flex: 1;
+            padding: 2rem;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-.hero-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
+        .contact-items {
+            margin-bottom: 2rem;
+        }
 
-/* Section Styles */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
 
-.section {
-  padding: 6rem 0;
-  position: relative;
-}
+        .contact-icon {
+            margin-right: 1rem;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
 
-.section-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
+        .contact-details h4 {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
 
-/* Footer */
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
 
-.footer {
-  background: var(--dark-color);
-  color: var(--secondary-color);
-  padding: 4rem 0 1.5rem;
-}
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
 
-.footer-content {
-  display: grid;
-  gap: 2rem;
-}
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--light-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
 
-.footer-links h3 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  color: var(--secondary-color);
-}
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 5px rgba(255, 183, 77, 0.5);
+        }
 
-.footer-links a {
-  color: var(--secondary-color); /* Make links white */
-  transition: var(--transition);
-}
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: var(--secondary-color);
+            padding: 4rem 0;
+        }
 
-.footer-links a:hover {
-  color: var(--primary-color);
-  transform: translateX(5px);
-}
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0 2rem;
+        }
 
-/* Animations */
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+        }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+        .footer-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0.5rem 0;
+        }
 
-@keyframes move {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
 
-.hover-lift {
-  transition: var(--transition);
-}
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+        }
 
-.hover-lift:hover {
-  animation: move 0.5s ease-in-out infinite;
-}
-</style>
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content, .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-content {
+                padding: 1rem;
+            }
+
+            .about-details, .contact-content {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- Background Elements -->
-<div class="bg-elements">
-<div class="bg-circle bg-circle-1"></div>
-<div class="bg-circle bg-circle-2"></div>
-<div class="bg-circle bg-circle-3"></div>
-<div class="bg-circle bg-circle-4"></div>
-</div>
-
-<!-- Navigation -->
-<header class="header">
-<div class="container">
-<div class="header-content">
-<a href="#">Last Lozane Portfolio<span>.</span></a>
-
-
-<nav class="nav">
-<ul class="nav-list">
-<li><a href="#about" class="nav-link">About</a></li>
-<li><a href="#skills" class="nav-link">Skills</a></li>
-<li><a href="#projects" class="nav-link">Projects</a></li>
-<li><a href="#education" class="nav-link">Education</a></li>
-<li><a href="#contact" class="nav-link">Contact</a></li>
-</ul>
-</nav>
-<a href="resume.pdf" target="_blank" class="btn btn-primary">
-<i class="fas fa-download"></i> Resume
-</a>
-<button class="mobile-menu-btn">
-<span></span>
-<span></span>
-<span></span>
-</button>
-</div>
-</div>
-</header>
-<main>
-
-<!-- Hero Section -->
-<section class="hero">
-<div class="container">
-<div class="hero-content">
-<div class="hero-text">
-<span class="badge">Passionate Software Developer</span>
-</div>
-<p class="hero-description">
-I'm a third-year IT student at Harare Institute of Technology with a passion for software and web
-development. I build strong teams through team building activities and am committed to delivering
-high-quality work.
-</p>
-<div class="hero-buttons">
-<a href="#contact" class="btn btn-primary">Get in Touch</a>
-<a href="#projects" class="btn btn-outline">View Projects</a>
-</div>
-</div>
-</section>
-
-
-<!-- About Section -->
-<section id="about" class="section">
-<div class="container">
-<div class="section-header">
-<span class="section-subtitle">About Me</span>
-<h2 class="section-title">Who I Am</h2>
-</div>
-
-<div class="about-text">
-
-<p>
-I'm a third-year IT student at Harare Institute of Technology with a passion for software and web
-development. I build strong teams through team building activities and am committed to delivering
-high-quality work.
-</p>
-<div class="about-details">
-<div class="details-column">
-<div class="detail-item">
-<span class="detail-label">Name:</span>
-<span class="detail-value">Last Lozane</span>
-</div>
-<div class="detail-item">
-<span class="detail-label">Age:</span>
-<span class="detail-value">22 Years</span>
-</div>
-<div class="detail-item">
-<span class="detail-label">Email:</span>
-<span class="detail-value">lassylozzy@gmail.com</span>
-</div>
-</div>
-<div class="details-column">
-<div class="detail-item">
-<span class="detail-label">Location:</span>
-<span class="detail-value">Harare, Zimbabwe</span>
-</div>
-<div class="detail-item">
-<span class="detail-label">Languages:</span>
-<span class="detail-value">English, Shona</span>
-</div>
-<div class="detail-item">
-<span class="detail-label">Phone:</span>
-<span class="detail-value">+263 784 212 645 </span>
-</div>
-</div>
-</div>
-<div class="social-links">
-<a href="https://github.com" target="_blank" class="social-link">
-<i class="fab fa-github"></i>
-</a>
-<a href="https://linkedin.com" target="_blank" class="social-link">
-<i class="fab fa-linkedin-in"></i>
-</a>
-<a href="mailto:lassylozzya@gmail.com" class="social-link">
-<i class="fas fa-envelope"></i>
-</a>
-<a href="https://twitter.com" target="_blank" class="social-link">
-<i class="fab fa-twitter"></i>
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section section-alt">
-
-<img src="https://attractive-rabbit.static.domains/7c146d35f2a62618262b2fb87f973b91.JPG" alt="Last Lozane" style="position:center;">
-
-</section>
-<!-- Skills Section -->
-<section id="skills" class="section section-alt">
-<div class="container">
-<div class="section-header">
-<span class="section-subtitle">Technical Skills</span>
-
-</div>
-<div class="skills-content">
-<div class="skills-text">
-<h3 class="skills-heading">Technical Expertise & <span class="gradient-text">Professional Skills</span></h3>
-<p>
-During my academic journey and through personal projects, I have cultivated a wide range of skills across different technologies and fields. I have a strong passion for learning, evolving, and gaining new skills to keep pace with industry trends
-</p>
-</div>
-<div class="skills-grid">
-<div class="skill-card">
-<div class="skill-icon">
-<i class="fas fa-code"></i>
-</div>
-<h3 class="skill-title">Programming</h3>
-<div class="skill-tags">
-<span class="skill-tag">JavaScript</span>
-<span class="skill-tag">Python</span>
-<span class="skill-tag">Java</span>
-<span class="skill-tag">C#</span>
-<span class="skill-tag">SQL</span>
-<span class="skill-tag">HTML/CSS</span>
-<span class="skill-tag">PHP</span>
-<span class="skill-tag">Matlab</span>
-<span class="skill-tag">command line, scripting</span>
-<span class="skill-tag"> Active Directory, PowerShell </span>
-
-</div>
-</div>
-<div class="skill-card">
-<div class="skill-icon">
-<i class="fas fa-laptop-code"></i>
-</div>
-<h3 class="skill-title">Frameworks</h3>
-<div class="skill-tags">
-<span class="skill-tag">React</span>
-<span class="skill-tag">Node.js</span>
-<span class="skill-tag">PHP Laravel Herd</span>
-<span class="skill-tag">basics of Flask</span>
-
-</div>
-</div>
-<div class="skill-card">
-<div class="skill-icon">
-<i class="fas fa-shield-alt"></i>
-</div>
-<h3 class="skill-title">Software and Website development</h3>
-<div class="skill-tags">
-
-<span class="skill-tag"></span>
-<span class="skill-tag">Networking</span>
-<span class="skill-tag">frontend-Development</span>
-<span class="skill-tag">Backend development</span>
-<span class="skill-tag">Networking Basics (TCP/IP, DNS, HTTP/HTTPS, VPNs, firewalls, and subnetting).</span>
-<span class="skill-tag">Cybersecurity Fundamentals</span>
-<span class="skill-tag">Programming skills with python.</span>
-
-</div>
-</div>
-<div class="skill-card">
-<div class="skill-icon">
-<i class="fas fa-database"></i>
-</div>
-<h3 class="skill-title">Databases</h3>
-<div class="skill-tags">
-<span class="skill-tag">MySQL</span>
-<span class="skill-tag">Microsoft Access</span>
-</div>
-</div>
-<div class="skill-card">
-<div class="skill-icon">
-<i class="fas fa-tools"></i>
-</div>
-<h3 class="skill-title">Tools</h3>
-<div class="skill-tags">
-<span class="skill-tag">Git</span>
-<span class="skill-tag">Docker</span>
-<span class="skill-tag">Apache</span>
-<span class="skill-tag">Linux</span>
-<span class="skill-tag">Virtial Machine</span>
-<span class="skill-tag">packet tracer</span>
-<span class="skill-tag">volatility 2</span>
-<span class="skill-tag">systems internals </span>
-<span class="skill-tag">Wireshark</span>
-<span class="skill-tag">Windows Server 2012</span>
-<span class="skill-tag">Nmap and tcpdump</span>
-<span class="skill-tag">Bash</span>
-<span class="skill-tag">PowerShell</span>
-</div>
-</div>
-<div class="skill-card">
-<div class="skill-icon">
-<i class="fas fa-users"></i>
-</div>
-<h3 class="skill-title">Soft Skills</h3>
-<div class="skill-tags">
-<span class="skill-tag">Facilitation and Team building</span>
-<span class="skill-tag">Team Collaboration</span>
-<span class="skill-tag">Communication</span>
-<span class="skill-tag">Time Management</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects" class="section">
-<div class="container">
-<div class="section-header">
-<span class="section-subtitle">My Work</span>
-<h2 class="section-title">Featured Projects</h2>
-</div>
-<div class="projects-filter">
-<button class="filter-btn active" data-filter="all">All</button>
-<button class="filter-btn" data-filter="web">VID Booking portal</button>
-<button class="filter-btn" data-filter="mobile">Student portal</button>
-<button class="filter-btn" data-filter="security">Library management system for borrowing books.</button>
-</div>
-<div class="projects-grid">
-<!-- Project 1 -->
-<div class="project-card" data-category="web security">
-<div class="">
-
-<div class="project-overlay">
-<div class="project-links">
-<a href="https://github.com" target="_blank" class="project-link">
-<i class="fab fa-github"></i>
-</a>
-<a href="https://example.com" target="_blank" class="project-link">
-<i class="fas fa-external-link-alt"></i>
-</a>
-</div>
-</div>
-</div>
-<div class="project-content">
-<span class="project-category">Web Development</span>
-<h3 class="project-title">VID Booking portal</h3>
-<p class="project-description">
-A comprehensive online booking system for the Vehicle Inspection Department that allows users to
-schedule for provisional test, driving tests, and other services without physical visits to VID
-offices.
-</p>
-<div class="project-tags">
-<span class="project-tag">HTML/CSS/JS</span>
-<span class="project-tag">PHP</span>
-<span class="project-tag">MySQL</span>
-<span class="project-tag">Laravel</span>
-</div>
-</div>
-</div>
-
-<!-- Project 2 -->
-<div class="project-card" data-category="web">
-<div class="">
-
-<div class="project-overlay">
-<div class="project-links">
-<a href="https://github.com" target="_blank" class="project-link">
-<i class="fab fa-github"></i>
-</a>
-<a href="https://example.com" target="_blank" class="project-link">
-<i class="fas fa-external-link-alt"></i>
-</a>
-</div>
-</div>
-</div>
-<div class="project-content">
-<span class="project-category">Software Development</span>
-<h3 class="project-title">Student Portal</h3>
-<p class="project-description">
-A comprehensive system for managing student records, attendance, and performance tracking.
-</p>
-<div class="project-tags">
-<span class="project-tag">HTML/CSS/JS</span>
-<span class="project-tag">MySQL</span>
-<span class="project-tag">Bootstrap</span>
-</div>
-</div>
-</div>
-
-<!-- Project 4 -->
-<div class="project-card" data-category="security">
-<div class="">
-
-<div class="project-overlay">
-<div class="project-links">
-<a href="https://github.com" target="_blank" class="project-link">
-<i class="fab fa-github"></i>
-</a>
-<a href="https://example.com" target="_blank" class="project-link">
-<i class="fas fa-external-link-alt"></i>
-</a>
-</div>
-</div>
-</div>
-<div class="project-content">
-<span class="project-category">Information Technology</span>
-<h3 class="project-title">Hardware and Software aspecs</h3>
-<p class="project-description">
-Im flexible and willing to learn both software and hardware aspects.
-</p>
-<div class="project-tags">
-<span class="project-tag">Python
-</span>
-<span class="project-tag">Wireshark</span>
-<span class="project-tag">Network Protocols</span>
-</div>
-</div>
-</div>
-</div>
-<div class="projects-more">
-<a href="https://github.com" target="_blank" class="btn btn-outline">
-View All Projects <i class="fas fa-arrow-right"></i>
-</a>
-</div>
-</div>
-</section>
-
-<!-- Education Section -->
-<section id="education" class="section section-alt">
-<div class="container">
-<div class="section-header">
-<span class="section-subtitle">My Journey</span>
-<h2 class="section-title">Education & Qualifications</h2>
-</div>
-<div class="timeline">
-<div class="timeline-item">
-<div class="timeline-dot"></div>
-<div class="timeline-date">2022 - Present</div>
-<div class="timeline-content">
-<h3 class="timeline-title">Bachelor of Technology in Information Technology</h3>
-<p class="timeline-subtitle">Harare Institute of Technology</p>
-<p class="timeline-description">
-Relevant courses: Web development, Software Testing, Mobile App development
-</div>
-</div>
-<div class="timeline">
-<div class="timeline-item">
-<div class="timeline-dot"></div>
-<div class="timeline-date">2021 - 2022</div>
-<div class="timeline-content">
-<h3 class="timeline-title">Alevel</h3>
-<p class="timeline-subtitle">Chaplin</p>
-<p class="timeline-description"> 4 Alevel passes in Pure Mathematics, computer science , Geography</p>
-</div>
-<br></br>
-<div class="timeline">
-<div class="timeline-item">
-<div class="timeline-dot"></div>
-<div class="timeline-date">2017 - 2020</div>
-<div class="timeline-content">
-<h3 class="timeline-title">Olevel</h3>
-<p class="timeline-subtitle">Sanyati Baptist High School</p>
-<p class="timeline-description"> 12 Olevel subjects including English, Maths and Combined Science</p>
-</div>
-</div>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-dot"></div>
-<div class="timeline-date">2020</div>
-<div class="timeline-content">
-<h3 class="timeline-title"> NFC HEXICO</h3>
-<p class="timeline-subtitle">NFC in Computer Operations and packages</p>
-<p class="timeline-description">
-Microsoft Office suit: Excell powerpoint Word Access database
-</p>
-</div>
-</div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="section">
-<div class="container">
-<div class="section-header">
-<span class="section-subtitle">Get In Touch</span>
-<h2 class="section-title">Contact Me</h2>
-</div>
-<div class="contact-content">
-<div class="contact-info">
-
-<p class="contact-description">
-Im available and always eager to learn.
-</p>
-<div class="contact-items">
-<div class="contact-item">
-<div class="contact-icon">
-<i class="fas fa-envelope"></i>
-</div>
-<div class="contact-details">
-<h4>Email</h4>
-<p>lassylozzy@gmail.com</p>
-</div>
-</div>
-<div class="contact-item">
-<div class="contact-icon">
-<i class="fas fa-phone"></i>
-</div>
-<div class="contact-details">
-<h4>Phone</h4>
-<p>+263 421 2645</p>
-</div>
-</div>
-<div class="contact-item">
-<div class="contact-icon">
-<i class="fas fa-map-marker-alt"></i>
-</div>
-<div class="contact-details">
-<h4>Location</h4>
-<p>Harare, Zimbabwe</p>
-</div>
-</div>
-</div>
-<div class="contact-social">
-<h4>Follow Me</h4>
-<div class="social-links">
-<a href="https://github.com" target="_blank" class="social-link">
-<i class="fab fa-github"></i>
-</a>
-<a href="https://linkedin.com" target="_blank" class="social-link">
-<i class="fab fa-linkedin-in"></i>
-</a>
-<a href="mailto:lassylozzy@gmail.com" class="social-link">
-<i class="fas fa-envelope"></i>
-</a>
-<a href="https://twitter.com" target="_blank" class="social-link">
-<i class="fab fa-twitter"></i>
-</a>
-</div>
-</div>
-</div>
-<div class="contact-form-container">
-<form id="contactForm" class="contact-form">
-<div class="form-group">
-<label for="name">Your Name</label>
-<input type="text" id="name" placeholder="Enter your name" required>
-</div>
-<div class="form-group">
-<label for="email">Your Email</label>
-<input type="email" id="email" placeholder="Enter your email" required>
-</div>
-<div class="form-group">
-<label for="subject">Subject</label>
-<input type="text" id="subject" placeholder="Enter subject" required>
-</div>
-<div class="form-group">
-<label for="message">Message</label>
-<textarea id="message" placeholder="Enter your message" required></textarea>
-</div>
-<button type="submit" class="btn btn-primary btn-block">
-Send Message <i class="fas fa-paper-plane"></i>
-</button>
-</form>
-</div>
-</div>
-</div>
-</section>
-</main>
-
-<!-- Footer -->
-<footer class="footer">
-<div class="container">
-<div class="footer-content">
-<div class="footer-logo">
-<a href="#" class="logo">Last<span>.</span></a>
-<p>Information and Technology & Aspiring Software Developer</p>
-</div>
-<div class="footer-links">
-<h3>Quick Links</h3>
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</div>
-<div class="footer-contact">
-<h3>Contact Info</h3>
-<p><i class="fas fa-envelope"></i> lassylozzya@gmail.com</p>
-<p><i class="fas fa-phone"></i> 078 421 2645</p>
-<p><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</p>
-</div>
-</div>
-<div class="footer-bottom">
-<p>&copy; <span id="currentYear"></span> lastlozane. All rights reserved.</p>
-<a href="#" class="back-to-top">
-<i class="fas fa-arrow-up"></i>
-</a>
-</div>
-</div>
-</footer>
-
-<script src="js/script.js">
-
-document.addEventListener("DOMContentLoaded", () => {
-// Set current year in footer
-document.getElementById("currentYear").textContent = new Date().getFullYear()
-
-// Header scroll effect
-const header = document.querySelector(".header")
-window.addEventListener("scroll", () => {
-if (window.scrollY > 50) {
-header.classList.add("scrolled")
-} else {
-header.classList.remove("scrolled")
-}
-})
-
-// Mobile menu toggle
-const mobileMenuBtn = document.querySelector(".mobile-menu-btn")
-const navList = document.querySelector(".nav-list")
-
-if (mobileMenuBtn) {
-mobileMenuBtn.addEventListener("click", function () {
-this.classList.toggle("active")
-
-if (navList.style.display === "flex") {
-navList.style.display = "none"
-} else {
-navList.style.display = "flex"
-navList.style.flexDirection = "column"
-navList.style.position = "absolute"
-navList.style.top = "4rem"
-navList.style.left = "0"
-navList.style.width = "100%"
-navList.style.padding = "1rem"
-navList.style.backgroundColor = "white"
-navList.style.boxShadow = "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
-navList.style.zIndex = "50"
-}
-})
-}
-
-// Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll(".nav-link")
-navLinks.forEach((link) => {
-link.addEventListener("click", () => {
-if (window.innerWidth < 768) {
-navList.style.display = "none"
-if (mobileMenuBtn) {
-mobileMenuBtn.classList.remove("active")
-}
-}
-})
-})
-
-// Project filtering
-const filterBtns = document.querySelectorAll(".filter-btn")
-const projectCards = document.querySelectorAll(".project-card")
-
-filterBtns.forEach((btn) => {
-btn.addEventListener("click", function () {
-// Remove active class from all buttons
-filterBtns.forEach((b) => b.classList.remove("active"))
-
-// Add active class to clicked button
-this.classList.add("active")
-
-const filter = this.getAttribute("data-filter")
-
-projectCards.forEach((card) => {
-const categories = card.getAttribute("data-category")
-
-if (filter === "all" || categories.includes(filter)) {
-card.style.display = "block"
-setTimeout(() => {
-card.style.opacity = "1"
-card.style.transform = "translateY(0)"
-}, 100)
-} else {
-card.style.opacity = "0"
-card.style.transform = "translateY(20px)"
-setTimeout(() => {
-card.style.display = "none"
-}, 300)
-}
-})
-})
-})
-
-// Form submission
-const contactForm = document.getElementById("contactForm")
-if (contactForm) {
-contactForm.addEventListener("submit", (e) => {
-e.preventDefault()
-
-// Get form values
-const name = document.getElementById("name").value
-const email = document.getElementById("email").value
-const subject = document.getElementById("subject").value
-const message = document.getElementById("message").value
-
-// Here you would typically send the form data to a server
-// For this example, we'll just show an alert
-alert(`Thank you, ${name}! Your message has been received. I'll get back to you soon.`)
-
-// Reset the form
-contactForm.reset()
-})
-}
-
-// Scroll animations
-const animateOnScroll = () => {
-const elements = document.querySelectorAll(".skill-card, .project-card, .timeline-item, .contact-item")
-
-elements.forEach((element, index) => {
-const elementPosition = element.getBoundingClientRect().top
-const windowHeight = window.innerHeight
-
-if (elementPosition < windowHeight - 100) {
-setTimeout(() => {
-element.style.opacity = "1"
-element.style.transform = "translateY(0)"
-}, index * 100)
-}
-})
-}
-
-// Set initial state for scroll animations
-const elementsToAnimate = document.querySelectorAll(".skill-card, .project-card, .timeline-item, .contact-item")
-elementsToAnimate.forEach((element) => {
-element.style.opacity = "0"
-element.style.transform = "translateY(30px)"
-element.style.transition = "opacity 0.6s ease, transform 0.6s ease"
-})
-
-// Run animation on load and scroll
-window.addEventListener("load", animateOnScroll)
-window.addEventListener("scroll", animateOnScroll)
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-anchor.addEventListener("click", function (e) {
-e.preventDefault()
-
-const targetId = this.getAttribute("href")
-if (targetId === "#") return
-
-const targetElement = document.querySelector(targetId)
-if (targetElement) {
-window.scrollTo({
-top: targetElement.offsetTop - 80,
-behavior: "smooth",
-})
-}
-})
-})
-
-// Back to top button
-const backToTop = document.querySelector(".back-to-top")
-if (backToTop) {
-backToTop.addEventListener("click", (e) => {
-e.preventDefault()
-window.scrollTo({
-top: 0,
-behavior: "smooth",
-})
-})
-}
-
-// Add active class to nav links based on scroll position
-const sections = document.querySelectorAll("section[id]")
-
-function highlightNavLink() {
-const scrollPosition = window.scrollY
-
-sections.forEach((section) => {
-const sectionTop = section.offsetTop - 100
-const sectionHeight = section.offsetHeight
-const sectionId = section.getAttribute("id")
-
-if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.add("active")
-} else {
-document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.remove("active")
-}
-})
-}
-
-window.addEventListener("scroll", highlightNavLink)
-
-// Initialize the active nav link on page load
-highlightNavLink()
-
-// Parallax effect for background circles
-window.addEventListener("mousemove", (e) => {
-const circles = document.querySelectorAll(".bg-circle")
-const x = e.clientX / window.innerWidth
-const y = e.clientY / window.innerHeight
-
-circles.forEach((circle, index) => {
-const speed = (index + 1) * 20
-const xOffset = (x - 0.5) * speed
-const yOffset = (y - 0.5) * speed
-
-circle.style.transform = `translate(${xOffset}px, ${yOffset}px)`
-})
-})
-})
-
-</script>
-<!-- Static App Form Collection Script -->
-<script src="https://static.app/js/static-forms.js" type="text/javascript"></script>
-
-<script src="https://static.app/js/static.js" type="text/javascript"></script>
-</body>
-
-</html>
+    <!-- Background Elements -->
+    <div class="bg-elements"></div>
+
+    <!-- Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">Last Lozane Portfolio<span>.</span></a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="resume.pdf" target="_blank" class="btn">Resume</a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Passionate Software Developer</h1>
+                <p class="hero-description">
+                    I'm a third-year IT student at Harare Institute of Technology with a passion for software and web
+                    development. I build strong teams through team-building activities and am committed to delivering
+                    high-quality work.
+                </p>
+                <div>
+                    <a href="#contact" class="btn">Get in Touch</a>
+                    <a href="#projects" class="btn btn-outline">View Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="section-header">
+                <span class="section-subtitle">About Me</span>
+                <h2 class="section-title">Who I Am</h2>
+            </div>
+            <div class="container">
+                <p>
+                    I'm a third-year IT student at Harare Institute of Technology with a passion for software and web
+                    development. I build strong teams through team-building activities and am committed to delivering
+                    high-quality work.
+                </p>
+                <div class="about-details">
+                    <div class="detail-item">
+                        <strong>Name:</strong> Last Lozane
+                    </div>
+                    <div class="detail-item">
+                        <strong>Age:</strong> 22 Years
+                    </div>
+                    <div class="detail-item">
+                        <strong>Email:</strong> lassylozzy@gmail.com
+                    </div>
+                    <div class="detail-item">
+                        <strong>Location:</strong> Harare, Zimbabwe
+                    </div>
+                    <div class="detail-item">
+                        <strong>Languages:</strong> English, Shona
+                    </div>
+                    <div class="detail-item">
+                        <strong>Phone:</strong> +263 784 212 645
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:lassylozzy@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="section-header">
+                <span class="section-subtitle">Technical Skills</span>
+                <h2 class="section-title">Expertise & Professional Skills</h2>
+            </div>
+            <div class="skills-content">
+                <div class="skill-card">
+                    <h3>Programming</h3>
+                    <p>JavaScript, Python, Java, C#, SQL, HTML/CSS, PHP, MATLAB</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Frameworks</h3>
+                    <p>React, Node.js, PHP Laravel, Flask</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Software Development</h3>
+                    <p>Web Development, Cybersecurity Fundamentals</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Databases</h3>
+                    <p>MySQL, Microsoft Access</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools</h3>
+                    <p>Git, Docker, Apache, Linux, Wireshark</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Soft Skills</h3>
+                    <p>Facilitation, Team Collaboration, Communication, Time Management</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="section-header">
+                <span class="section-subtitle">My Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>VID Booking Portal</h3>
+                    <p>A comprehensive online booking system for the Vehicle Inspection Department.</p>
+                    <div class="project-tags">
+                        <span>HTML/CSS/JS</span>
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Student Portal</h3>
+                    <p>A system for managing student records, attendance, and performance tracking.</p>
+                    <div class="project-tags">
+                        <span>HTML/CSS/JS</span>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Hardware and Software Aspects</h3>
+                    <p>Flexible and willing to learn both software and hardware aspects.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Wireshark</span>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-more">
+                <a href="https://github.com" target="_blank" class="btn btn-outline">View All Projects <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="section-header">
+                <span class="section-subtitle">My Journey</span>
+                <h2 class="section-title">Education & Qualifications</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Bachelor of Technology in Information Technology</h3>
+                        <p>Harare Institute of Technology</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - 2022</div>
+                    <div class="timeline-content">
+                        <h3>A-Level</h3>
+                        <p>Chaplin</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2017 - 2020</div>
+                    <div class="timeline-content">
+                        <h3>O-Level</h3>
+                        <p>Sanyati Baptist High School</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="section-header">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2 class="section-title">Contact Me</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>I'm available and always eager to learn.</p>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>lassylozzy@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <p>+263 784 212 645</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <p>Harare, Zimbabwe</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="Enter subject" required>
+                        </div>
+                        <div class="form-group">+
