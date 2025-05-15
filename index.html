@@ -5,18 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Last Lozane - Student Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Base Styles */
         :root {
-            --primary-color: #000000;
+            --primary-color: #4A90E2;
             --secondary-color: #FFFFFF;
-            --light-color: #f0f0f0;
-            --dark-color: #1a1a1a;
+            --light-color: #F7F7F7;
+            --dark-color: #333333;
             --accent-color: #FFB74D;
             --border-radius: 12px;
             --transition: all 0.3s ease;
@@ -35,24 +32,9 @@
         body {
             font-family: "Poppins", sans-serif;
             line-height: 1.6;
-            color: var(--primary-color);
+            color: var(--dark-color);
             background: var(--light-color);
             overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Background Elements */
-        .bg-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            background-image: url('path/to/your/background/image.jpg');
-            background-size: cover;
-            background-position: center;
         }
 
         /* Header */
@@ -63,13 +45,8 @@
             width: 100%;
             z-index: 100;
             padding: 1rem 0;
-            background: var(--light-color);
-            transition: var(--transition);
-        }
-
-        .header.scrolled {
-            padding: 0.5rem 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            background: var(--secondary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .header-content {
@@ -85,7 +62,7 @@
         }
 
         .nav-link {
-            color: var(--primary-color);
+            color: var(--dark-color);
             text-decoration: none;
             transition: var(--transition);
         }
@@ -116,12 +93,9 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 8rem 0;
-            position: relative;
             text-align: center;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(to right, #4A90E2, #50E3C2);
+            color: var(--secondary-color);
         }
 
         .hero-content {
@@ -129,17 +103,19 @@
             padding: 2rem;
             background: rgba(255, 255, 255, 0.9);
             border-radius: var(--border-radius);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
         .hero-title {
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
+            color: #000; /* Change title color to black */
         }
 
         .hero-description {
             margin-bottom: 2rem;
+            color: #000; /* Change description color to black */
         }
 
         /* Section Styles */
@@ -150,11 +126,23 @@
         .section-header {
             text-align: center;
             margin-bottom: 4rem;
+            animation: slideIn 0.5s forwards;
+            opacity: 0;
+            transform: translateX(100%);
         }
 
         .section-title {
             font-size: 2rem;
             font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Animation */
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         /* About Section */
@@ -200,6 +188,26 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
         /* Education Section */
         .timeline {
             position: relative;
@@ -208,15 +216,12 @@
 
         .timeline-item {
             margin-bottom: 2rem;
-            position: relative;
-            animation: slideIn 0.5s forwards;
-            opacity: 0;
-            transform: translateX(100%);
         }
 
         .timeline-date {
             font-weight: 600;
             margin-bottom: 0.5rem;
+            color: var(--primary-color);
         }
 
         .timeline-content {
@@ -241,9 +246,6 @@
             background: var(--light-color);
             border-radius: var(--border-radius);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            animation: slideIn 0.5s forwards;
-            opacity: 0;
-            transform: translateX(100%);
         }
 
         .contact-items {
@@ -327,14 +329,6 @@
             padding-top: 2rem;
         }
 
-        /* Animations */
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
         /* Responsive Styles */
         @media (max-width: 768px) {
             .header-content,
@@ -363,10 +357,7 @@
 
 <body>
 
-    <!-- Background Elements -->
-    <div class="bg-elements"></div>
-
-    <!-- Navigation -->
+    <!-- Header -->
     <header class="header">
         <div class="header-content">
             <a href="#" class="logo">Last Lozane Portfolio<span>.</span></a>
@@ -388,8 +379,8 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <h1 class="hero-title">Passionate Software Developer</h1>
-                <p class="hero-description">
+                <h1 class="hero-title">I’m a Passionate Software Developer</h1>
+                <p class="hero-description" style="color: #000;">
                     I'm a third-year IT student at Harare Institute of Technology with a passion for software and web
                     development. I build strong teams through team-building activities and am committed to delivering
                     high-quality work.
@@ -407,37 +398,24 @@
                 <span class="section-subtitle">About Me</span>
                 <h2 class="section-title">Who I Am</h2>
             </div>
-            <div class="container">
-                <p>
-                    I'm a third-year IT student at Harare Institute of Technology with a passion for software and web
-                    development. I build strong teams through team-building activities and am committed to delivering
-                    high-quality work.
-                </p>
-                <div class="about-details">
-                    <div class="detail-item">
-                        <strong>Name:</strong> Last Lozane
-                    </div>
-                    <div class="detail-item">
-                        <strong>Age:</strong> 22 Years
-                    </div>
-                    <div class="detail-item">
-                        <strong>Email:</strong> lassylozzy@gmail.com
-                    </div>
-                    <div class="detail-item">
-                        <strong>Location:</strong> Harare, Zimbabwe
-                    </div>
-                    <div class="detail-item">
-                        <strong>Languages:</strong> English, Shona
-                    </div>
-                    <div class="detail-item">
-                        <strong>Phone:</strong> +263 784 212 645
-                    </div>
+            <div class="about-details">
+                <div class="detail-item">
+                    <strong>Name:</strong> Last Lozane
                 </div>
-                <div class="social-links">
-                    <a href="https://github.com" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:lassylozzy@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
-                    <a href="https://twitter.com" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                <div class="detail-item">
+                    <strong>Age:</strong> 22 Years
+                </div>
+                <div class="detail-item">
+                    <strong>Email:</strong> lassylozzy@gmail.com
+                </div>
+                <div class="detail-item">
+                    <strong>Location:</strong> Harare, Zimbabwe
+                </div>
+                <div class="detail-item">
+                    <strong>Languages:</strong> English, Shona
+                </div>
+                <div class="detail-item">
+                    <strong>Phone:</strong> +263 784 212 645
                 </div>
             </div>
         </section>
@@ -450,7 +428,7 @@
             </div>
             <div class="skills-content">
                 <div class="skill-card">
-                    <h3>Programming Languages</h3>
+                    <h3>Programming</h3>
                     <p>JavaScript, Python, Java, C#, SQL, HTML/CSS, PHP, MATLAB</p>
                 </div>
                 <div class="skill-card">
@@ -466,7 +444,7 @@
                     <p>MySQL, Microsoft Access</p>
                 </div>
                 <div class="skill-card">
-                    <h3>Tools & Technologies</h3>
+                    <h3>Tools</h3>
                     <p>Git, Docker, Apache, Linux, Wireshark</p>
                 </div>
                 <div class="skill-card">
@@ -508,9 +486,6 @@
                         <span>Wireshark</span>
                     </div>
                 </div>
-            </div>
-            <div class="projects-more">
-                <a href="https://github.com" target="_blank" class="btn btn-outline">View All Projects <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
 
@@ -561,3 +536,35 @@
                                 <h4>Email</h4>
                                 <p>lassylozzy@gmail.com</p>
                             </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <p>+263 784 212 645</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <p>Harare, Zimbabwe</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="Enter subject" required>
+                        </div>
+                        <div class
